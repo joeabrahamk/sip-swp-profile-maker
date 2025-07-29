@@ -1,0 +1,130 @@
+/* Subtle modern theme */
+body, .app-container {
+  background: #f8f6f3;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.form-page, .data-view {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 32px 24px;
+  color: #333;
+  border: 1px solid #ececec;
+}
+
+.form-page h2, .data-view h2 {
+  color: #222;
+  font-size: 2rem;
+  margin-bottom: 24px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: 1px solid #d6d6d6;
+  background: #f7f7f7;
+  color: #222;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+input:focus, textarea:focus {
+  border-color: #a3a3a3;
+  box-shadow: 0 0 0 2px #e2e2e2;
+}
+
+button {
+  background: linear-gradient(90deg, #f7e7c4 0%, #e2d6b1 100%);
+  color: #222;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: background 0.2s;
+}
+button:hover {
+  background: linear-gradient(90deg, #e2d6b1 0%, #f7e7c4 100%);
+}
+
+.image-drop-area {
+  border: 2px dashed #e2d6b1;
+  background: #faf9f7;
+  color: #a3a3a3;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.image-drop-area:hover {
+  border-color: #f7e7c4;
+}
+
+.data-view img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 10px;
+  margin-top: 16px;
+  border: 2px solid #ececec;
+}
+
+::-webkit-input-placeholder { color: #a3a3a399; }
+::-moz-placeholder { color: #a3a3a399; }
+:-ms-input-placeholder { color: #a3a3a399; }
+::placeholder { color: #a3a3a399; }
