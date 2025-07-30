@@ -1,57 +1,4 @@
-/* Subtle modern theme */
-body, .app-container {
-  background: #f8f6f3;
-  min-height: 100vh;
-  margin: 0;
-  font-family: 'Segoe UI', 'Arial', sans-serif;
-  text-align: left;
-}
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: left;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-/* Remove all custom form, button, image-drop-area, and input styles below this line. Use Tailwind classes in JSX only. */
-/* ===== FormPage.css (ICICI Theme) ===== */
+/* ===== Variables & Base Styles (ICICI Bank Theme) ===== */
 :root {
   --color-primary-accent: #FF6600; /* ICICI Orange */
   --color-primary-accent-dark: #E65C00;
@@ -60,11 +7,11 @@ body, .app-container {
   --color-danger: #D32F2F;
   --color-danger-bg: #FFEBEE;
   
-  --bg-main: #f4f6f8;
-  --bg-card: #ffffff;
-  --text-primary: #212529;
-  --text-secondary: #6c757d;
-  --border-color: #ced4da;
+  --bg-main: #f4f6f8; /* Light gray page background */
+  --bg-card: #ffffff; /* White card background */
+  --text-primary: #212529; /* Dark gray for text */
+  --text-secondary: #6c757d; /* Medium gray for secondary text */
+  --border-color: #ced4da; /* Standard border color */
 
   --shadow-color-light: rgba(0, 51, 160, 0.08);
   --shadow-color-medium: rgba(0, 51, 160, 0.12);
@@ -81,10 +28,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-  background-color: var(--bg-main);
 }
 
+/* ===== Main Layout ===== */
 .form-bg {
   min-height: 100vh;
   display: flex;
@@ -110,11 +56,12 @@ body {
   gap: 2.5rem;
 }
 
+/* ===== Typography ===== */
 .form-title {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--color-primary-action);
-  text-align: left;
+  color: var(--color-primary-action); /* Blue title */
+  text-align: center;
   margin-bottom: 2rem;
 }
 
@@ -124,6 +71,7 @@ body {
   color: var(--text-primary);
   margin-top: 1.5rem;
   margin-bottom: 1.2rem;
+  letter-spacing: 0.5px;
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 0.5rem;
 }
@@ -136,6 +84,7 @@ label {
   font-size: 0.9rem;
 }
 
+/* ===== Form Elements ===== */
 .input-group {
   margin-bottom: 1.2rem;
   position: relative;
@@ -154,7 +103,7 @@ label {
 }
 
 .input:focus, .select:focus {
-  border-color: var(--color-primary-accent);
+  border-color: var(--color-primary-accent); /* Orange focus border */
   box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.15);
   transform: translateY(-2px);
 }
@@ -169,6 +118,7 @@ label {
   padding-right: 2.5rem;
 }
 
+/* ===== Image Uploader ===== */
 .image-upload {
   position: relative;
   display: flex;
@@ -191,12 +141,12 @@ label {
   background-color: #fff;
 }
 
-.image-upload > div > .upload-icon-svg {
-    stroke: var(--color-primary-accent);
+.image-upload > div > .text-gray-400 {
+  stroke: var(--color-primary-accent); /* Make upload icon orange */
 }
 
 .image-upload > div {
-  color: var(--color-primary-action) !important;
+  color: var(--color-primary-action) !important; /* Make text blue */
 }
 
 .image-preview {
@@ -234,11 +184,12 @@ label {
   margin-top: 0.5rem;
 }
 
+/* ===== Submit Button ===== */
 .submit-btn {
   width: 100%;
   max-width: 300px;
   color: #fff;
-  background: var(--color-primary-action);
+  background: var(--color-primary-action); /* Blue button */
   font-weight: 700;
   font-size: 1.125rem;
   border-radius: var(--radius-md);
@@ -261,9 +212,10 @@ label {
 
 .submit-btn:focus-visible {
   background: var(--color-primary-action);
-  box-shadow: 0 0 0 4px var(--bg-card), 0 0 0 6px var(--color-primary-accent);
+  box-shadow: 0 0 0 4px var(--bg-card), 0 0 0 6px var(--color-primary-accent); /* Orange focus ring */
 }
 
+/* ===== Responsive Adjustments ===== */
 @media (max-width: 900px) {
   .form-sections {
     grid-template-columns: 1fr;
@@ -272,153 +224,4 @@ label {
   .form-card {
     padding: 1.5rem;
   }
-}
-
-/* ===== DetailsPage.css ===== */
-.details-page-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: #f0f2f5;
-  padding: 2rem;
-  text-align: left;
-}
-
-.poster-wrapper {
-  aspect-ratio: 4 / 3;
-  width: 90vw;
-  max-width: 1000px;
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
-  overflow: hidden;
-}
-
-.poster-header {
-  background-color: #8C1515; /* Deep Maroon */
-  color: white;
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: bold;
-  text-align: center;
-  padding: 1rem;
-  letter-spacing: 1.5px;
-}
-
-.poster-header .gold-text {
-  color: #FFD700; /* Gold color */
-}
-
-.poster-content {
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  padding: 2rem;
-}
-
-.details-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
-}
-
-.details-main-pitch {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 1.5rem;
-  border-left: 4px solid #8C1515;
-  padding-left: 1rem;
-  text-align: left;
-}
-
-.details-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  font-size: clamp(0.85rem, 2vw, 1.1rem);
-  color: #444;
-  text-align: left;
-}
-
-.details-list li {
-  margin-bottom: 1rem;
-  padding-left: 2rem;
-  position: relative;
-}
-
-.details-list li::before {
-  content: '✓';
-  color: #8C1515;
-  font-weight: bold;
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 1.5rem;
-}
-
-.image-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  padding: 1rem;
-  text-align: left;
-}
-
-.profile-image {
-  max-width: 100%;
-  max-height: 80%;
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.image-caption {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #8C1515;
-    text-align: left;
-}
-
-.poster-footer {
-  background-color: #f7f7f7;
-  color: #555;
-  font-size: 0.8rem;
-  padding: 0.75rem 2rem;
-  border-top: 1px solid #e0e0e0;
-  display: flex;
-  justify-content: space-between;
-  text-align: left;
-}
-
-.download-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 2rem;
-  padding: 0.8rem 1.5rem;
-  background-color: #0033A0;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 51, 160, 0.2);
-}
-
-.download-button:hover {
-  background-color: #00227A;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 51, 160, 0.3);
 }
