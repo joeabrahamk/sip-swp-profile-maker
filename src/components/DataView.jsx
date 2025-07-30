@@ -146,7 +146,7 @@ const FormPage = ({ onSubmit }) => {
         lifeCoverAmount: '5500000',
         monthlyIncome: '14400',
         forYear: '10',
-        maturityAmount: '3000000',
+        maturityAmount: '6860000',
         goldReturnAmount: '12000000',
         contact: 'Abraham',
         image: null
@@ -267,7 +267,7 @@ const DetailsPage = ({ data, onBack }) => {
     <div className="details-page-container">
       <div className="poster-wrapper" ref={posterRef}>
         <header className="poster-header">
-          <span className="gold-text">I Pru Gold + SIP + SWP</span>
+          <span className="gold-text">I PRU Gold + SIP + SWP</span>
         </header>
         <main className="poster-content">
           <div className="details-section">
@@ -277,9 +277,9 @@ const DetailsPage = ({ data, onBack }) => {
             <ul className="details-list">
               <li>Tax Free Returns</li>
               <li>Life Cover of ₹{formatCurrency(data.lifeCoverAmount)}</li>
-              <li>Monthly Income of ₹{formatCurrency(data.monthlyIncome)} and ₹{formatCurrency(data.maturityAmount)} at Maturity</li>
+              <li>Monthly Income of ₹{formatCurrency(data.monthlyIncome)} for 30 years and ₹{formatCurrency(data.maturityAmount)} at Maturity</li>
               <li>Total Gold Return - ₹{formatCurrency(data.goldReturnAmount)}</li>
-              <li>Run SIP of ₹14,400 per month for next 30 years without break</li>
+              <li>Run SIP of ₹{formatCurrency(data.monthlyIncome)} per month for next 30 years without break</li>
             </ul>
             {/* Warren Buffett Quote Section */}
             {showQuote && (
@@ -324,6 +324,10 @@ const DetailsPage = ({ data, onBack }) => {
             </button>
           </div>
       )}
+      {/* Copyright Footer */}
+      <div style={{width: '100%', textAlign: 'center', marginTop: '2rem', color: '#888', fontSize: '0.95rem', letterSpacing: '0.5px'}}>
+        © 2025 All rights belong to Joe Abraham K
+      </div>
     </div>
   );
 };
