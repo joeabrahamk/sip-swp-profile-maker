@@ -50,9 +50,11 @@ const ImageUploader = ({ onFileChange }) => {
 
     const handleImageChange = useCallback((file) => {
         if (file && file.type.startsWith('image/')) {
-            onFileChange(file);
             const reader = new FileReader();
-            reader.onloadend = () => setImagePreview(reader.result);
+            reader.onloadend = () => {
+                setImagePreview(reader.result);
+                onFileChange(reader.result); // Pass data URL instead of File
+            };
             reader.readAsDataURL(file);
         }
     }, [onFileChange]);
@@ -137,19 +139,33 @@ const ImageUploader = ({ onFileChange }) => {
 
 
 // --- Form Page Component ---
+const contactOptions = [
+    { value: 'Abraham K J : 9847365760', label: 'Abraham K J : 9847365760' },
+    { value: 'Nibu Mathew : 9847175444', label: 'Nibu Mathew : 9847175444' },
+    { value: 'George Thomas : 9995447498', label: 'George Thomas : 9995447498' }
+];
+
+const contactPhones = {
+    'Abraham K J': '9847365760',
+    'Nibu Mathew': '9847175444',
+    'George Thomas': '9995447498'
+};
+
+console.debug('contactPhones:', contactPhones);
+
 const FormPage = ({ onSubmit }) => {
     const [formData, setFormData] = useState({
-        name: 'John Doe',
-        age: '45',
-        payAmount: '500000',
-        year: '10',
-        lifeCoverAmount: '5500000',
-        monthlyIncome: '14400',
-        forYear: '10',
-        maturityAmount: '6860000',
-        goldReturnAmount: '12000000',
-        contact: 'Abraham',
-        image: null
+        name: '',
+        age: '',
+        payAmount: '',
+        year: '',
+        lifeCoverAmount: '',
+        monthlyIncome: '',
+        forYear: '',
+        maturityAmount: '',
+        goldReturnAmount: '',
+        contact: '',
+        image: null // Will now be a data URL
     });
 
     const handleChange = (e) => {
@@ -167,12 +183,6 @@ const FormPage = ({ onSubmit }) => {
             onSubmit(formData);
         }
     };
-
-    const contactOptions = [
-        { value: 'Abraham', label: 'Abraham' },
-        { value: 'Nibu', label: 'Nibu' },
-        { value: 'George', label: 'George' }
-    ];
 
     return (
         <div className="form-bg">
@@ -294,19 +304,20 @@ const DetailsPage = ({ data, onBack }) => {
           <div className="image-section">
             {data.image && (
               <img
-                src={URL.createObjectURL(data.image)}
+                src={data.image}
                 alt={`${data.name}'s profile`}
                 className="profile-image"
               />
             )}
             <div className="image-caption">
                 {data.name}, Age {data.age}
+                
             </div>
           </div>
         </main>
         <footer className="poster-footer">
             <span>Plan prepared for: {data.name}</span>
-            <span>Contact: {data.contact}</span>
+            <span>Contact: {contactOptions.find(opt => opt.value === data.contact)?.label || data.contact}</span>
         </footer>
       </div>
       {!isCapturing && (
