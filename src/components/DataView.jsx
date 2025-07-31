@@ -314,18 +314,15 @@ const DetailsPage = ({ data, onBack }) => {
                 className="profile-image"
               />
             )}
-            <div className="image-caption">
-                {data.name}'s Profile
-                
-            </div>
+            
           </div>
           <span></span>
-          <footer className="poster-footer">
+          
+        </main>
+        <footer className="poster-footer">
             <span>Plan prepared for: {data.name}</span>
             <span>Contact: {contactOptions.find(opt => opt.value === data.contact)?.label || data.contact}</span>
         </footer>
-        </main>
-        
       </div>
       {!isCapturing && (
           <div style={{display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap'}}>
