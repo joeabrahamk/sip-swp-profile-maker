@@ -165,6 +165,8 @@ const FormPage = ({ onSubmit }) => {
         maturityAmount: '',
         goldReturnAmount: '',
         contact: '',
+        swp_year: '',
+        swp_amount: '',
         image: null // Will now be a data URL
     });
 
@@ -202,6 +204,8 @@ const FormPage = ({ onSubmit }) => {
                         <FormField id="monthlyIncome" name="monthlyIncome" label="Guaranteed Monthly Income" type="number" value={formData.monthlyIncome} onChange={handleChange} />
                         <FormField id="maturityAmount" name="maturityAmount" label="Maturity Amount" type="number" value={formData.maturityAmount} onChange={handleChange} />
                         <FormField id="goldReturnAmount" name="goldReturnAmount" label="Total Gold Return" type="number" value={formData.goldReturnAmount} onChange={handleChange} />
+                        <FormField id="swp_year" name="swp_year" label="SWP Term (Years)" type="number" value={formData.swp_year} onChange={handleChange} />
+                        <FormField id="swp_amount" name="swp_amount" label="SWP Amount (per month)" type="number" value={formData.swp_amount} onChange={handleChange} />
                     </div>
                     <ImageUploader onFileChange={handleImageFileChange} />
                 </div>
@@ -290,6 +294,7 @@ const DetailsPage = ({ data, onBack }) => {
               <li>Monthly Income of ₹{formatCurrency(data.monthlyIncome)} for 30 years and ₹{formatCurrency(data.maturityAmount)} at Maturity</li>
               <li>Total Gold Return - ₹{formatCurrency(data.goldReturnAmount)}</li>
               <li>Run SIP of ₹{formatCurrency(data.monthlyIncome)} per month for next 30 years without break</li>
+              <li>Starting from the {data.swp_year}th year, a monthly withdrawal of ₹{formatCurrency(data.swp_amount)} will be made through SWP</li>
             </ul>
             {/* Warren Buffett Quote Section */}
             {showQuote && (
@@ -310,15 +315,17 @@ const DetailsPage = ({ data, onBack }) => {
               />
             )}
             <div className="image-caption">
-                {data.name}, Age {data.age}
+                {data.name}'s Profile
                 
             </div>
           </div>
-        </main>
-        <footer className="poster-footer">
+          <span></span>
+          <footer className="poster-footer">
             <span>Plan prepared for: {data.name}</span>
             <span>Contact: {contactOptions.find(opt => opt.value === data.contact)?.label || data.contact}</span>
         </footer>
+        </main>
+        
       </div>
       {!isCapturing && (
           <div style={{display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap'}}>
