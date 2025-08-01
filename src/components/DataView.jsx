@@ -323,8 +323,8 @@ const DetailsPage = ({ data, onBack }) => {
           
         </main>
         <footer className="poster-footer">
-            <span>Plan prepared for: {data.name}</span>
-            <span>Contact: {contactOptions.find(opt => opt.value === data.contact)?.label || data.contact}</span>
+            <span></span>
+            <span>Contact {contactOptions.find(opt => opt.value === data.contact)?.label || data.contact}</span>
         </footer>
       </div>
       {!isCapturing && (
