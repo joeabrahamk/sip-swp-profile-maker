@@ -339,6 +339,19 @@ label {
   text-align: left;
 }
 
+.retirement-plan-header {
+  background: linear-gradient(90deg, #FFD700 0%, #FFF8DC 100%);
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  color: #8C1515;
+  font-size: 1.15rem;
+  box-shadow: 0 2px 8px rgba(140,21,21,0.07);
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
 .details-list {
   list-style-type: none;
   padding: 0;

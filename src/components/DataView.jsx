@@ -285,6 +285,9 @@ const DetailsPage = ({ data, onBack }) => {
         </header>
         <main className="poster-content">
           <div className="details-section">
+            <div style={{ fontSize: '1rem', color: '#666', fontWeight: 400, marginBottom: '0.5rem', letterSpacing: '0.1px' }}>
+              Retirement plan prepared for <span style={{color:'#222'}}>{data.name}</span>
+            </div>
             <p className="details-main-pitch">
               Pay ₹{formatCurrency(data.payAmount)} for {data.forYear || '10'} years, get:
             </p>
